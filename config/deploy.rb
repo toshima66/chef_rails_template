@@ -5,7 +5,7 @@ set :application, 'chef_rails_template'
 
 # scm
 set :scm, :git
-set :repo_url, 'git://github.com/ntaku/chef_rails_template.git'
+set :repo_url, 'git://github.com/toshima66/chef_rails_template'
 set :branch, 'master'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 set :deploy_via, :remote_cache
@@ -23,8 +23,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 
 # rbenv
-# set :rbenv_custom_path, ''
-set :rbenv_type, :user # or :system, depends on your rbenv setup
+set :rbenv_custom_path, '/opt/rbenv'
+set :rbenv_type, :system # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.0.0-p481'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
@@ -62,6 +62,12 @@ set :rbenv_roles, :all # default value
 # set :keep_releases, 5
 
 namespace :deploy do
+  desc 'upload application'
+  task :upload do
+    on roles(:app) do |host|
+      upload!('config/database.yml', "#{shared_path}/config/database.yml")
+    end
+  end
 
   desc 'Restart application'
   task :restart do
