@@ -78,6 +78,8 @@ namespace :deploy do
     end
   end
 
+  before :starting, 'deploy:upload'
+
   after :publishing, :restart
 
   after :restart, :clear_cache do
