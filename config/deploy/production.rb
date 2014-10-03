@@ -25,7 +25,7 @@ server 'localhost', user: 'vagrant', roles: %w{web app}
 set :ssh_options, {
   user: 'vagrant',
   port: 2222,
-  keys: ["/Users/oshima/.vagrant.d/insecure_private_key"],
+  keys: ["~/.vagrant.d/insecure_private_key"],
   auth_methods: ["publickey"]
 #  forward_agent: true
 }
