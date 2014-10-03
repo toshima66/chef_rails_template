@@ -7,7 +7,7 @@ shared_path = "/var/www/#{application}/shared"
 stderr_path "#{shared_path}/log/unicorn.stderr.log"
 stdout_path "#{shared_path}/log/unicorn.stdout.log"
 
-listen "#{shared_path}/tmp/pids/unicorn.sock"
+listen "/tmp/unicorn_#{application}.sock"
 pid "#{shared_path}/tmp/pids/unicorn.pid"
 
 worker_processes 4;
