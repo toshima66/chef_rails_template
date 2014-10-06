@@ -9,8 +9,6 @@ Rails環境をサクッと作成できるように作ってみました。
 > [Rails用のChef - toshima66/chef-rails](https://github.com/toshima66/chef-rails)
 
 
------
-
 ## Requirement
 Mac + Vagrantで使用できるように設定してあります。
 利用前に、下記コマンドでVagrantへ接続できる状態にする必要があります。
@@ -33,7 +31,6 @@ $ bundle exec cap production deploy
 http://localhost:8080
 ```
 
------
 
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
