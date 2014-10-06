@@ -18,7 +18,6 @@ set :log_level, :debug
 
 
 # create symbolic link to shared directory
-set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 
@@ -66,6 +65,7 @@ namespace :deploy do
   task :upload do
     on roles(:app) do |host|
       upload!('config/database.yml', "#{shared_path}/config/database.yml")
+      set :linked_files, %w{config/database.yml}
     end
   end
 
@@ -77,8 +77,6 @@ namespace :deploy do
       # execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-
-  before :starting, 'deploy:upload'
 
   after :publishing, :restart
 

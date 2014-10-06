@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{vagrant@localhost}
-role :web, %w{vagrant@localhost}
-role :db,  %w{vagrant@localhost}
+role :app, %w{vagrant}
+role :web, %w{vagrant}
+role :db,  %w{vagrant}
 
 
 # Extended Server Syntax
@@ -15,20 +15,19 @@ role :db,  %w{vagrant@localhost}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'localhost', user: 'vagrant', roles: %w{web app}
+#server 'localhost', user: 'vagrant', roles: %w{web app}
 
 
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
 # limited set of options, consult[net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start).
-set :ssh_options, {
-  user: 'vagrant',
-  port: 2222,
-  keys: ["~/.vagrant.d/insecure_private_key"],
-  auth_methods: ["publickey"]
-#  forward_agent: true
-}
+#set :ssh_options, {
+#  user: 'vagrant',
+#  port: 2222,
+#  keys: ["~/.vagrant.d/insecure_private_key"],
+#  auth_methods: ["publickey"]
+#}
 
 # Global options
 # --------------
