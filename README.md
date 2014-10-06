@@ -1,7 +1,6 @@
 chef_rails_template
 ====
 
-Overview
 Rails環境をサクッと作成できるように作ってみました。
 
 下記で構築した環境(rbenv(ruby2.0), nginx(unicorn) , Vagrant)に、Railsアプリケーションをデプロイします。
